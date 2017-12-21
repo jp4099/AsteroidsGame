@@ -2,6 +2,7 @@
 Spaceship abc = new Spaceship();
 Stars [] stellar = new Stars[400];
 ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
+ArrayList <Bullet> pewpew = new ArrayList <Bullet>();
 public void setup() 
 {
   //your code here
@@ -15,6 +16,7 @@ public void setup()
     Asteroid rock = new Asteroid();
     rocks.add(i, rock);
   }
+  
 }
 public void draw() 
 {
@@ -39,6 +41,34 @@ public void draw()
   }
   abc.show();
   abc.move();
+  for (int i = 0; i < pewpew.size();i++)
+  {
+  pewpew.get(i).show();
+  pewpew.get(i).move();
+}
+  for ( int i = 0; i < pewpew.size(); i++)
+  {
+    pewpew.get(i).show();
+    pewpew.get(i).move();
+ 
+    for (int i2 = rocks.size()-1; i2 >= 0; i2--)
+    {
+     
+      int cx = pewpew.get(i).getX();
+      int cy = pewpew.get(i).getY();
+      int bx = rocks.get(i2).getX();
+      int by = rocks.get(i2).getY();
+      int d2 = (int)(dist(cx, cy, bx, by));
+      if ( d2 < 20)
+      {
+       
+        rocks.remove(i2);
+        pewpew.remove(i);
+        break;
+       
+      }
+    }
+  }
 }
 public void keyPressed()
 {
@@ -60,5 +90,10 @@ public void keyPressed()
     abc.setDirectionY(0);
     abc.setX((int)(Math.random() *500));
     abc.setY((int)(Math.random() *500));
+  }
+  if (key == 'b')
+  {
+    Bullet x = new Bullet(abc);
+    pewpew.add(x);
   }
 }
