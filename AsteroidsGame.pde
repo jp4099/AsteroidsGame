@@ -26,8 +26,8 @@ public void draw()
   for (int i = 0; i< rocks.size(); i++)
   {
     rocks.get(i).show();
-    int sx = abc.getX();
-    int sy = abc.getY();
+    int sx = ufo.getX();
+    int sy = ufo.getY();
     int ax = rocks.get(i).getX();
     int ay = rocks.get(i).getY();
     int shipToAsteroid = (int)(dist(sx, sy, ax, ay));
@@ -36,8 +36,6 @@ public void draw()
     else
       rocks.get(i).move();
   }
-  abc.show();
-  abc.move();
   ufo.show();
   ufo.move();
   }
