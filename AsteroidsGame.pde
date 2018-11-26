@@ -23,7 +23,7 @@ public void draw()
     sinsin[i].show();
   }
   
-  for (int i = 0; i< rocks.size(); i++)
+  /*for (int i = 0; i< rocks.size(); i++)
   {
     rocks.get(i).show();
     int sx = abc.getX();
@@ -36,7 +36,7 @@ public void draw()
     else
       rocks.get(i).move();
   }
- 
+ */
   ufo.show();
   ufo.move();
   }
