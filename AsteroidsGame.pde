@@ -9,7 +9,9 @@ public void setup()
   {
     sinsin[i] = new Stars();
   }
-   Asteroid rock = new Asteroid();
+   for (int i = 0; i < 20; i++)
+  {
+    Asteroid rock = new Asteroid();
     rocks.add(i, rock);
   }
 }
