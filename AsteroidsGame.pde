@@ -1,6 +1,6 @@
 Spaceship ufo = new Spaceship();
 Stars [] sinsin = new Stars[500];
-
+ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
 
 public void setup() 
 {
@@ -9,7 +9,12 @@ public void setup()
   {
     sinsin[i] = new Stars();
   }
+   Asteroid rock = new Asteroid();
+    rocks.add(i, rock);
+  }
 }
+
+
 public void draw() 
 {
   background(0);
@@ -17,9 +22,27 @@ public void draw()
   {
     sinsin[i].show();
   }
+  
+  for (int i = 0; i< rocks.size(); i++)
+  {
+    rocks.get(i).show();
+    int sx = abc.getX();
+    int sy = abc.getY();
+    int ax = rocks.get(i).getX();
+    int ay = rocks.get(i).getY();
+    int shipToAsteroid = (int)(dist(sx, sy, ax, ay));
+    if (shipToAsteroid < 30)
+      rocks.remove(i);
+    else
+      rocks.get(i).move();
+  }
+ 
   ufo.show();
   ufo.move();
   }
+  
+  
+  
 public void keyPressed()
 {
   if (key == 'd')
