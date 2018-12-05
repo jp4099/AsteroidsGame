@@ -1,17 +1,22 @@
 class Asteroid extends Floater
 {
+  private int r,g,b;
   private int rotSpeed;
   public Asteroid() {
+    r = (int)(Math.random()*255+100);
+    g = (int)(Math.random()*255+100);
+    b = (int)(Math.random()*255+100);
+    
     rotSpeed = (int)(Math.random());
-    myDirectionX = (int)(Math.random()*4+1);
-    myDirectionY = (int)(Math.random()*4+1);
+    myDirectionX = (int)(Math.random()*8-3);
+    myDirectionY = (int)(Math.random()*6+1);
     
     corners = 15;
     int[] xS = {0, 6, 12, 16, 16, 12, 6, 0, -6, -12, -16, -14, -16, -14, -8};
     int[] yS = {12, 14, 10, 6, -4, -10, -12, -12, -10, -12, -6, -2, 2, 8, 14};
     xCorners = xS; 
     yCorners = yS;
-    myColor = 200;
+    myColor = color(r, g, b);
     myCenterX = (int)(Math.random()*250);
     myCenterY = (int)(Math.random()*250);
   }
