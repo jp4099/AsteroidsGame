@@ -1,27 +1,48 @@
 class Bullet extends Floater
 {
-  public bullet(){
-    myCenterX = 250;
-    myCenterY = 250;
-    double dRadians = myPointDirection*(Math.PI/180);
-    myDirectionX = (int)(5 * Math.cos(dRadians));
-  
-  /*
-Intialize myCenterX and myCenterY of the bullet to be the same as the ship.
-Initialize myPointDirection of the bullet to be the same as the direction the ship is pointing.
-Initialize myDirectionX as 5 * Math.cos(dRadians) + the directionX of the ship
-Initialize myDirectionY as 5 * Math.sin(dRadians) + the directionY of the ship
-  */
-  }
-  
-  public Bullet(Spaceship theShip){
-    
-  }
-  
-  public void show()
+  public Bullet(Spaceship ufo)
   {
-    super.show();  
-    //Override the show() method of the Floater class so that you can use circular bullets
+  class Bullet extends Floater
+{
+  public Bullet(Spaceship ufo){
+    myCenterX = ufo.getX();
+    myCenterY = ufo.getY();
+    myPointDirection = ufo.getPointDirection();
+    double dRadians = myPointDirection*(Math.PI/180);
+    myDirectionX = 5 * Math.cos(dRadians) + ufo.myDirectionX;
+    myDirectionY = 5 * Math.sin(dRadians) + ufo.myDirectionY;
   }
-    
+   public void setX(int x){myCenterX =x;}
+   public int getX(){return (int)myCenterX;}
+   public void setY(int y){myCenterY=y;}
+   public int getY(){return (int)myCenterY;} 
+   public void setDirectionX(double x){myDirectionX= x;}  
+   public double getDirectionX(){return myDirectionX;}   
+   public void setDirectionY(double y){myDirectionY= y;}   
+   public double getDirectionY(){return myDirectionY; }   
+   public void setPointDirection(int degrees){myPointDirection= degrees;}  
+   public double getPointDirection(){return myPointDirection;
+ }
+   
+  public void show(){
+    fill(255,0,43);
+    stroke(255,0,43);
+    ellipse((int)myCenterX, (int)myCenterY, 9, 9);
+  }
+  public void move (){      
+    myCenterX += myDirectionX;    
+    myCenterY += myDirectionY;     
+    if(myCenterX >width){        
+      red.remove(this);    
+    }    
+    else if (myCenterX<0){     
+      red.remove(this);     
+    }    
+    if(myCenterY >height){    
+      red.remove(this);  
+    }   
+    else if (myCenterY < 0){     
+      red.remove(this);   
+    }   
+  }  
 }
