@@ -1,16 +1,12 @@
 class Bullet extends Floater
 {
-  public Bullet(Spaceship ufo)
-  {
-  class Bullet extends Floater
-{
   public Bullet(Spaceship ufo){
-    myCenterX = ufo.getX();
-    myCenterY = ufo.getY();
-    myPointDirection = ufo.getPointDirection();
+    myCenterX= ufo.getX();
+    myCenterY= ufo.getY();
+    myPointDirection= ufo.getPointDirection();
     double dRadians = myPointDirection*(Math.PI/180);
-    myDirectionX = 5 * Math.cos(dRadians) + ufo.myDirectionX;
-    myDirectionY = 5 * Math.sin(dRadians) + ufo.myDirectionY;
+    myDirectionX= 5 * Math.cos(dRadians) + ufo.myDirectionX;
+    myDirectionY= 5 * Math.sin(dRadians) + ufo.myDirectionY;
   }
    public void setX(int x){myCenterX =x;}
    public int getX(){return (int)myCenterX;}
@@ -33,16 +29,16 @@ class Bullet extends Floater
     myCenterX += myDirectionX;    
     myCenterY += myDirectionY;     
     if(myCenterX >width){        
-      red.remove(this);    
+      bang.remove(this);    
     }    
     else if (myCenterX<0){     
-      red.remove(this);     
+      bang.remove(this);     
     }    
     if(myCenterY >height){    
-      red.remove(this);  
+      bang.remove(this);  
     }   
     else if (myCenterY < 0){     
-      red.remove(this);   
+      bang.remove(this);   
     }   
   }  
 }
