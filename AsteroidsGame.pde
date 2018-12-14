@@ -1,5 +1,5 @@
 Spaceship ufo = new Spaceship();
-Stars [] sinsin = new Stars[500];
+Stars [] sinsin = new Stars[400];
 ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
 ArrayList <Bullet> bang = new ArrayList <Bullet>();
 
@@ -10,48 +10,22 @@ public void setup()
   {
     sinsin[i] = new Stars();
   }
-   for (int i = 0; i < 20; i++)
+  for (int i = 0; i < 20; i++)
   {
     Asteroid rock = new Asteroid();
     rocks.add(i, rock);
   }
-  for (int i = 0; i < bang.size();i++)
-    bang.add(new Bullet(ufo));
 }
-
 
 public void draw() 
 {
+  //your code here
   background(0);
   for (int i = 0; i < sinsin.length; i++)
   {
     sinsin[i].show();
   }
   
-  for (int i = 0; i < bang.size();i++)
-  {
-  bang.get(i).show();
-  bang.get(i).move();
-}
-  for (int i = 0; i < bang.size(); i++)
-  {
-    bang.get(i).show();
-    bang.get(i).move();
-    
-   for (int i2 = rocks.size()-1; i2 >= 0; i2--)
-    {
-      int cx = bang.get(i).getX();
-      int cy = bang.get(i).getY();
-      int bx = rocks.get(i2).getX();
-      int by = rocks.get(i2).getY();
-      int d2 = (int)(dist(cx, cy, bx, by));
-      if (d2 < 20)
-      {
-        rocks.remove(i2);
-        bang.remove(i);
-        break;
-      }
-      
   for (int i = 0; i< rocks.size(); i++)
   {
     rocks.get(i).show();
@@ -65,14 +39,35 @@ public void draw()
     else
       rocks.get(i).move();
   }
-  for (int i = 0; i < bang.size();i++)
-  {  
-    bang.get(i).show();
-    bang.get(i).move();
-  }
   ufo.show();
   ufo.move();
+  for (int i = 0; i < bang.size();i++)
+  {
+  bang.get(i).show();
+  bang.get(i).move();
+}
+
+  for (int i = 0; i < bang.size(); i++)
+  {
+    bang.get(i).show();
+    bang.get(i).move();
+ 
+    for (int i2 = rocks.size()-1; i2 >= 0; i2--)
+    {
+      int cx = bang.get(i).getX();
+      int cy = bang.get(i).getY();
+      int bx = rocks.get(i2).getX();
+      int by = rocks.get(i2).getY();
+      int d2 = (int)(dist(cx, cy, bx, by));
+      if ( d2 < 20)
+      {
+        rocks.remove(i2);
+        bang.remove(i);
+        break;
+      }
+    }
   }
+}
   
   
   
