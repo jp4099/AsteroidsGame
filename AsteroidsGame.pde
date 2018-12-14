@@ -15,6 +15,8 @@ public void setup()
     Asteroid rock = new Asteroid();
     rocks.add(i, rock);
   }
+  for (int i = 0; i < bang.size();i++)
+    bang.add(new Bullet(ufo));
 }
 
 
@@ -26,6 +28,30 @@ public void draw()
     sinsin[i].show();
   }
   
+  for (int i = 0; i < bang.size();i++)
+  {
+  bang.get(i).show();
+  bang.get(i).move();
+}
+  for (int i = 0; i < bang.size(); i++)
+  {
+    bang.get(i).show();
+    bang.get(i).move();
+    
+   for (int i2 = rocks.size()-1; i2 >= 0; i2--)
+    {
+      int cx = bang.get(i).getX();
+      int cy = bang.get(i).getY();
+      int bx = rocks.get(i2).getX();
+      int by = rocks.get(i2).getY();
+      int d2 = (int)(dist(cx, cy, bx, by));
+      if (d2 < 20)
+      {
+        rocks.remove(i2);
+        bang.remove(i);
+        break;
+      }
+      
   for (int i = 0; i< rocks.size(); i++)
   {
     rocks.get(i).show();
@@ -38,6 +64,11 @@ public void draw()
       rocks.remove(i);
     else
       rocks.get(i).move();
+  }
+  for (int i = 0; i < bang.size();i++)
+  {  
+    bang.get(i).show();
+    bang.get(i).move();
   }
   ufo.show();
   ufo.move();
@@ -69,5 +100,10 @@ public void keyPressed()
     ufo.setDirectionY(0);
     ufo.setX((int)(Math.random()*500));
     ufo.setY((int)(Math.random()*500));
+  }
+  if (key == 'k')
+  {
+    Bullet x = new Bullet(ufo);
+    bang.add(x);
   }
 }
