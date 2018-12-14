@@ -1,6 +1,7 @@
 Spaceship ufo = new Spaceship();
 Stars [] sinsin = new Stars[500];
 ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
+ArrayList <Bullet> bang = new ArrayList <Bullet>();
 
 public void setup() 
 {
