@@ -1,8 +1,8 @@
 
 body {
     background-image: url('https://www.nasa.gov/centers/goddard/images/content/96661main_galaxy_string_3.jpg'); background-size:cover;
-    color: rgb(0,0,0);
-    font-family: "Open Sans", sans-serif;
+    color: rgb(255);
+    font-family: Verdana,Geneva,'Bitstream Vera Sans','DejaVu Sans',sans-serif;
     text-align: center;
 }
 
