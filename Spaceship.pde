@@ -13,7 +13,6 @@ class Spaceship extends Floater
       myDirectionX = 0;
       myDirectionY = 0;
       myPointDirection = 0;
-      strokeColor = color(255,255,255);
     }
     
     public void show()
